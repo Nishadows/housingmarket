@@ -1,0 +1,18 @@
+.container{
+    height:250px;
+}
+
+/* .header {
+    height: 100px;
+    padding-top: 20px;
+    background: black;
+} */
+
+.map-container{
+    /* width:650px; */
+    height:650px;
+}
+#mapright{
+    width:650px;
+    height:650px;
+}
