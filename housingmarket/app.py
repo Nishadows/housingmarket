@@ -23,7 +23,6 @@ def index():
 def viewdashboard():
     return render_template("dashboard.html")
 
-
 @app.route("/dmvviz")
 def visual():
     return render_template("visual.html")
@@ -32,7 +31,9 @@ def visual():
 def visual2():
     return render_template("visual2.html")
 
-
+@app.route("/tech_education_model")
+def tech_education_model():
+    return render_template("tech_education_model.html")
 
 
 if __name__ == "__main__":

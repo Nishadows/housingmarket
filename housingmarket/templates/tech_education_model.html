@@ -431,12 +431,109 @@
           <!-- Page Heading -->
           <div class="d-sm-flex align-items-center justify-content-between mb-4">
             <h1 class="h3 mb-0 text-gray-800">Yet to come!</h1>
-            
+
           </div>
 
           <!-- Content Row -->
 
+          <h2>Motivation and Overview</h2>
 
+          <p>The motivation behind this project is to make an informed predication regarding the impact
+          that Amazon HQ2 might have on Arlington residents and housing affordability. We created a
+          machine learning model that utilizes multivariate linear regression and variance inflation
+          factors to determine which factors related to technology and technology workers predict
+          housing affordability. This analysis spans ___ counties across the United States, with the
+          intention to apply what we see in national trends to Arlington, or potentially any locale
+          experiencing a boom in its technology sector.</p>
+
+
+          <h2>Findings</h2>
+
+          <p>Our premise assumes that technology companies attract high-skilled workers in the technology
+           sector, and that these employees typically have more education and higher incomes. Our
+           hypothesis is that technology companies, by attracting these employees in large numbers,
+           may cause increases in housing prices due to both higher demand for housing and a higher
+           willingness to pay.</p>
+
+           <table border="1" class="dataframe">
+            <thead>
+              <tr style="text-align: right;">
+                <th></th>
+                <th>Variable</th>
+                <th>Coefficient</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th>0</th>
+                <td>Years_Edu_Moved_Minus_Settled</td>
+                <td>0.091691</td>
+              </tr>
+              <tr>
+                <th>1</th>
+                <td>Tech_Employees_Share</td>
+                <td>0.093010</td>
+              </tr>
+
+              </tr>
+            </tbody>
+          </table>
+
+          <p>Our model with a score of 0.56 finds that the top ___ predictors of housing affordability of
+          a county were whether the county was located in ___, ___, or ___, with coefficients of ___, ___,
+          and ___, respectively . This was not a surprising result – the particulars of geographic
+          constraints, local economies, and other factors specific to a region are significant influences
+          in housing affordability. Our next two predictors were two variables we were particularly
+          interested in - _____, which predicted a ____ increase in the HPI, and _____, which predicted
+          a _____ increase. This would imply that a more educated population of new residents and the
+          concentration of workers in the technology sector both predict higher housing prices and
+          therefore lower affordability.</p>
+
+          <h2>Methodology</h2>
+
+          <p>Our analysis utilizes multivariate linear regression with Scikit-learn. We attempt to estimate
+          the HPI for each county using the following variables:</p>
+
+          ________
+
+
+          <p>The model calculates the variance inflation factor for all of the variables and drops any with
+          a score over 5. We then run the linear regression with the remaining variables to get our residuals
+           and coefficients. Our data and model can be found here.</p>
+
+          <h2>Data</h2>
+
+          <p>To measure housing affordability more broadly, we used the Housing Price Index (HPI)
+          developed by the Federal Housing Finance Agency (FHFA). From their website:</p>
+
+          “The FHFA House Price Index (HPI) is a broad measure of the movement of single-family house
+           prices. The HPI is a weighted, repeat-sales index, meaning that it measures average price
+           changes in repeat sales or refinancings on the same properties. This information is
+           obtained by reviewing repeat mortgage transactions on single-family properties whose
+           mortgages have been purchased or securitized by Fannie Mae or Freddie Mac since January
+           1975.
+
+          The HPI serves as a timely, accurate indicator of house price trends at various geographic
+          levels. It also provides housing economists with an improved analytical tool that is useful
+           for estimating changes in the rates of mortgage defaults, prepayments and housing
+           affordability in specific geographic areas.”
+
+          <p>We used their "All-Transactions" house price index, which also includes appraisal values
+          from refinance mortgages in addition to the dataset of only purchases. All of the HPIs were
+          adjusted for inflation based on 2017. For each county, we took the average of the 2000-based
+          HPI from 2008-2012 and 2013-2017 and matched them to the 2008-2012 and 2013-2017 education
+          data.</p>
+
+          <p>The data we used to determine education and migration is from the Census Bureau’s 2017-2013
+            and 2012-2008 5-year American Community Surveys. For each county, we used the population
+            counts of educational attainment and migration broken down by education to calculate the
+            average years of education for each county. We then derived several ratios to be used as
+            potential estimators.</p>
+
+           <p> The data for technology employees and establishments is from the Census Bureau’s County
+            Business Patterns dataset. We then calculated the share of employees and firms in the
+            Information and Professional, scientific and technical services sectors
+            (NAICS codes 51 and 54).</p>
 
         </div>
        <!-- End Page Content -->
