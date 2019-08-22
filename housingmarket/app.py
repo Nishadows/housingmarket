@@ -21,7 +21,7 @@ def index():
 
 @app.route("/dashboard")
 def viewdashboard():
-    return render_template("dashboard.html")
+    return render_template("AGCdashboard.html")
 
 @app.route("/dmvviz")
 def visual():
