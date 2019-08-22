@@ -5,9 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Baltimore Plot</title>
-  <link rel="stylesheet" href="mdeast.min.css">
-  <link rel="stylesheet" href="style.css">
+  <title>DMV Plot</title>
+  <link rel="stylesheet" href="../static/css/washDC.min.css">
+  <link rel="stylesheet" href="../static/css/style.css">
   <script src="https://unpkg.com/simple-statistics@5.0.0/dist/simple-statistics.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.min.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
@@ -36,10 +36,7 @@ tbody>tr:nth-child(odd){background-color: #fff !important}
 <body>
   <div class="container">
     <div class="jumbotron">
-      <h1 align="center">
-        Baltimore-Columbia Housing Analysis
-        <span id="report-date" style="text-align:center"></span>
-      </h1>
+      <h1 align="center">Northern Virginia-DC Housing Analysis</h1>
       <p></p>
     </div>
 
@@ -48,13 +45,12 @@ tbody>tr:nth-child(odd){background-color: #fff !important}
         <div class="panel panel-primary">
           <div class="panel-body">
             Analysis
-            <ul>
-              <li>Median prices are heavily fluctuating but slowly going up.</li>
-              <br>
-              <li>Housing opportunity index is volatile but not falling down.</li>
-              <br>
-              <li>Median income is steadily increasing.</li>
-            </ul>
+              <ul>
+                <li>Median prices are going up and looks like the line is fluctuating even in the growth.</li>
+                <br>
+                <li>Even with such volatility the HOI is slowly but steadily increasing as well as the median income.</li>
+              </ul>
+          
           </div>
         </div>
         <div class="metroarea">
@@ -75,7 +71,7 @@ tbody>tr:nth-child(odd){background-color: #fff !important}
   </div>
 
 
-  <script src="mdeast.js"></script>
+  <script src="../static/js/washDC.js"></script>
 </body>
 
 </html>
