@@ -21,31 +21,16 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-  <!-- Leaflet CSS & JS-->
-  <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" /> -->
-  <link rel="stylesheet" href="css/leaflet.css">
-  <!--[if lte IE 8
-          ]><link
-            rel="stylesheet"
-            href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css"
-        /><![endif]-->
 
   <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css"> -->
   <link rel="stylesheet" href="css/jquery-ui.css">
 
-  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
-    integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
-    crossorigin="">
-  <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
-    integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
-    crossorigin=""></script>
+
 
   <!-- d3 JavaScript -->
   <script src="https://d3js.org/d3.v4.min.js"></script>
 
   <!-- Leaflet-Choropleth JavaScript -->
-
-  <script type="text/javascript" src="js/choropleth.js"></script>
 
   <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
   <script src="js/jquery-1.9.1.min.js"></script>
@@ -53,7 +38,6 @@
   <!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
   <script src="js/jquery-ui.js"></script>
 
-  <script type="text/javascript" src="js/slider.js"></script>
 
   <!-- App CSS -->
   <link rel="stylesheet" type="text/css" href="css/style.css">
@@ -115,8 +99,6 @@
 
 <body id="page-top">
 
-
-  <!-- The div where we will inject our map -->
   <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
   <script src="js/jquery-1.9.1.min.js"></script>
 
@@ -136,14 +118,14 @@
         <div class="sidebar-brand-icon rotate-n-15">
           <i class="fas fa-laugh-wink"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">Team Work <sup>3</sup></div>
+        <div class="sidebar-brand-text mx-3">Technology and Housing</sup></div>
       </a>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
       <!-- Nav Item - Dashboard -->
-      <li class="nav-item">
+      <li class="nav-item active">
         <a class="nav-link" href="/dashboard">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -162,7 +144,7 @@
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
           aria-controls="collapseTwo">
           <i class="fas fa-fw fa-globe"></i>
-          <span>Regions</span>
+          <span>DMV and Seattle Metro Snapshot</span>
         </a>
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
           <div class="bg-white py-2 collapse-inner rounded">
@@ -172,29 +154,13 @@
           </div>
         </div>
       </li>
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseFive" aria-expanded="true"
-          aria-controls="collapseFive">
-          <i class="fas fa-fw fa-globe"></i>
-          <span>HOI</span>
-        </a>
-        <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Regions</h6>
-            <a class="collapse-item" href="../../mrun_folder/templates/seattleeast.html">Seattle-Bellevue</a>
-            <a class="collapse-item" href="../../mrun_folder/templates/Seattlesouth.html">Tacoma-Lakewood</a>
-            <a class="collapse-item" href="../../mrun_folder/templates/washDC.html">DC-NOVA</a>
-            <a class="collapse-item" href="../../mrun_folder/templates/southwestmd.html">Silver Spring-Rockville</a>
-            <a class="collapse-item" href="../../mrun_folder/templates/mdeast.html">Baltimore-Columbia</a>
-          </div>
-        </div>
-      </li>
+
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Addons
+        Machine Learning
       </div>
 
 
@@ -202,14 +168,14 @@
       <li class="nav-item">
         <a class="nav-link" href="blank.html">
           <i class="fas fa-fw fa-chart-area"></i>
-          <span>Charts</span></a>
+          <span>Historical Model</span></a>
       </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
-        <a class="nav-link" href="blank.html">
+        <a class="nav-link" href="tech_education_model.html">
           <i class="fas fa-fw fa-table"></i>
-          <span>Tables</span></a>
+          <span>Tech & Education Model</span></a>
       </li>
 
       <!-- Divider -->
@@ -227,302 +193,135 @@
     <div id="content-wrapper" class="d-flex flex-column">
 
       <!-- Main Content -->
-      <div id="content">
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
 
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
 
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
+        <!-- Content Row -->
 
-          <!-- Topbar Search -->
-          <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-            <div class="input-group">
-              <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                aria-label="Search" aria-describedby="basic-addon2">
-              <div class="input-group-append">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-search fa-sm"></i>
-                </button>
-              </div>
-            </div>
-          </form>
+        <!-- Illustrations -->
+      </div>
 
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
+      <div class="row">
 
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            <li class="nav-item dropdown no-arrow d-sm-none">
-              <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-search fa-fw"></i>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
-                aria-labelledby="searchDropdown">
-                <form class="form-inline mr-auto w-100 navbar-search">
-                  <div class="input-group">
-                    <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                      aria-label="Search" aria-describedby="basic-addon2">
-                    <div class="input-group-append">
-                      <button class="btn btn-primary" type="button">
-                        <i class="fas fa-search fa-sm"></i>
-                      </button>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </li>
+        <div class="col-lg-12" style="padding: 50px">
 
-            <!-- Nav Item - Alerts -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell fa-fw"></i>
-                <!-- Counter - Alerts -->
-                <span class="badge badge-danger badge-counter">3+</span>
-              </a>
-              <!-- Dropdown - Alerts -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="alertsDropdown">
-                <h6 class="dropdown-header">
-                  Alerts Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-primary">
-                      <i class="fas fa-file-alt text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 12, 2019</div>
-                    <span class="font-weight-bold">A new monthly report is ready to download!</span>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-success">
-                      <i class="fas fa-donate text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 7, 2019</div>
-                    $290.29 has been deposited into your account!
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="mr-3">
-                    <div class="icon-circle bg-warning">
-                      <i class="fas fa-exclamation-triangle text-white"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <div class="small text-gray-500">December 2, 2019</div>
-                    Spending Alert: We've noticed unusually high spending for your account.
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
-              </div>
-            </li>
-
-            <!-- Nav Item - Messages -->
-            <li class="nav-item dropdown no-arrow mx-1">
-              <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-envelope fa-fw"></i>
-                <!-- Counter - Messages -->
-                <span class="badge badge-danger badge-counter">7</span>
-              </a>
-              <!-- Dropdown - Messages -->
-              <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                aria-labelledby="messagesDropdown">
-                <h6 class="dropdown-header">
-                  Message Center
-                </h6>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/fn_BT9fwg_E/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div class="font-weight-bold">
-                    <div class="text-truncate">Hi there! I am wondering if you can help me with a problem I've been
-                      having.</div>
-                    <div class="small text-gray-500">Emily Fowler · 58m</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/AU4VPcFN4LE/60x60" alt="">
-                    <div class="status-indicator"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">I have the photos that you ordered last month, how would you like them
-                      sent to you?</div>
-                    <div class="small text-gray-500">Jae Chun · 1d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/CS2uCrpNzJY/60x60" alt="">
-                    <div class="status-indicator bg-warning"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Last month's report looks great, I am very happy with the progress so
-                      far, keep up the good work!</div>
-                    <div class="small text-gray-500">Morgan Alvarez · 2d</div>
-                  </div>
-                </a>
-                <a class="dropdown-item d-flex align-items-center" href="#">
-                  <div class="dropdown-list-image mr-3">
-                    <img class="rounded-circle" src="https://source.unsplash.com/Mv9hjnEUHR4/60x60" alt="">
-                    <div class="status-indicator bg-success"></div>
-                  </div>
-                  <div>
-                    <div class="text-truncate">Am I a good boy? The reason I ask is because someone told me that people
-                      say this to all dogs, even if they aren't good...</div>
-                    <div class="small text-gray-500">Chicken the Dog · 2w</div>
-                  </div>
-                </a>
-                <a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
-              </div>
-            </li>
-
-            <div class="topbar-divider d-none d-sm-block"></div>
-
-            <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Welcome Luna</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
-              </a>
-              <!-- Dropdown - User Information -->
-              <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Profile
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Settings
-                </a>
-                <a class="dropdown-item" href="#">
-                  <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Activity Log
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                  <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                  Logout
-                </a>
-              </div>
-            </li>
-
-          </ul>
-
-        </nav>
-        <!-- End of Topbar -->
-
-        <!-- Begin Page Content -->
-        <div class="container-fluid">
-
-          <!-- Page Heading -->
-          <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Yet to come!</h1>
-
-          </div>
-
-          <!-- Content Row -->
 
           <h2>Motivation and Overview</h2>
 
           <p>The motivation behind this project is to make an informed predication regarding the impact
-          that Amazon HQ2 might have on Arlington residents and housing affordability. We created a
-          machine learning model that utilizes multivariate linear regression and variance inflation
-          factors to determine which factors related to technology and technology workers predict
-          housing affordability. This analysis spans ___ counties across the United States, with the
-          intention to apply what we see in national trends to Arlington, or potentially any locale
-          experiencing a boom in its technology sector.</p>
+            that Amazon HQ2 might have on Arlington residents and housing affordability. We created a
+            machine learning model that utilizes multivariate linear regression and variance inflation
+            factors to determine which factors related to technology and technology workers predict
+            housing affordability. This analysis spans ___ counties across the United States, with the
+            intention to apply what we see in national trends to Arlington, or potentially any locale
+            experiencing a boom in its technology sector.</p>
 
 
           <h2>Findings</h2>
 
           <p>Our premise assumes that technology companies attract high-skilled workers in the technology
-           sector, and that these employees typically have more education and higher incomes. Our
-           hypothesis is that technology companies, by attracting these employees in large numbers,
-           may cause increases in housing prices due to both higher demand for housing and a higher
-           willingness to pay.</p>
-
-           <table border="1" class="dataframe">
-            <thead>
-              <tr style="text-align: right;">
-                <th></th>
-                <th>Variable</th>
-                <th>Coefficient</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <th>0</th>
-                <td>Years_Edu_Moved_Minus_Settled</td>
-                <td>0.091691</td>
-              </tr>
-              <tr>
-                <th>1</th>
-                <td>Tech_Employees_Share</td>
-                <td>0.093010</td>
-              </tr>
-
-              </tr>
-            </tbody>
-          </table>
-
+            sector, and that these employees typically have more education and higher incomes. Our
+            hypothesis is that technology companies, by attracting these employees in large numbers,
+            may cause increases in housing prices due to both higher demand for housing and a higher
+            willingness to pay.</p>
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" stle="padding-left: 1000px">
+              <center>
+                <table border="1" class="table-striped">
+                  <thead>
+                    <tr style="text-align: center;">
+                      <th>Variable</th>
+                      <th>Coefficient</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>North Dakota</td>
+                      <td>0.235118</td>
+                    </tr>
+                    <tr>
+                      <td>District of Columbia</td>
+                      <td>0.127124</td>
+                    </tr>
+                    <tr>
+                      <td>Wyoming</td>
+                      <td>0.108699</td>
+                    </tr>
+                    <tr>
+                      <td>Hawaii</td>
+                      <td>0.104170</td>
+                    </tr>
+                    <tr>
+                      <td>Share of employees in the tech industry</td>
+                      <td>0.093010</td>
+                    </tr>
+                    <tr>
+                      <td>Years of education: moved population minus settled</td>
+                      <td>0.091691</td>
+                    </tr>
+                    <tr>
+                      <td>Virginia</td>
+                      <td>0.071996</td>
+                    </tr>
+                    <tr>
+                      <td>California</td>
+                      <td>0.045889</td>
+                    </tr>
+                    <tr>
+                      <td>Maryland</td>
+                      <td>0.044081</td>
+                    </tr>
+                </table>
+              </center>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
           <p>Our model with a score of 0.56 finds that the top ___ predictors of housing affordability of
-          a county were whether the county was located in ___, ___, or ___, with coefficients of ___, ___,
-          and ___, respectively . This was not a surprising result – the particulars of geographic
-          constraints, local economies, and other factors specific to a region are significant influences
-          in housing affordability. Our next two predictors were two variables we were particularly
-          interested in - _____, which predicted a ____ increase in the HPI, and _____, which predicted
-          a _____ increase. This would imply that a more educated population of new residents and the
-          concentration of workers in the technology sector both predict higher housing prices and
-          therefore lower affordability.</p>
+            a county were whether the county was located in ___, ___, or ___, with coefficients of ___, ___,
+            and ___, respectively . This was not a surprising result – the particulars of geographic
+            constraints, local economies, and other factors specific to a region are significant influences
+            in housing affordability. Our next two predictors were two variables we were particularly
+            interested in - _____, which predicted a ____ increase in the HPI, and _____, which predicted
+            a _____ increase. This would imply that a more educated population of new residents and the
+            concentration of workers in the technology sector both predict higher housing prices and
+            therefore lower affordability.</p>
 
           <h2>Methodology</h2>
 
           <p>Our analysis utilizes multivariate linear regression with Scikit-learn. We attempt to estimate
-          the HPI for each county using the following variables:</p>
+            the HPI for each county using the following variables:</p>
 
           ________
 
 
           <p>The model calculates the variance inflation factor for all of the variables and drops any with
-          a score over 5. We then run the linear regression with the remaining variables to get our residuals
-           and coefficients. Our data and model can be found here.</p>
+            a score over 5. We then run the linear regression with the remaining variables to get our residuals
+            and coefficients. Our data and model can be found here.</p>
 
           <h2>Data</h2>
 
           <p>To measure housing affordability more broadly, we used the Housing Price Index (HPI)
-          developed by the Federal Housing Finance Agency (FHFA). From their website:</p>
+            developed by the Federal Housing Finance Agency (FHFA). From their website:</p>
 
           “The FHFA House Price Index (HPI) is a broad measure of the movement of single-family house
-           prices. The HPI is a weighted, repeat-sales index, meaning that it measures average price
-           changes in repeat sales or refinancings on the same properties. This information is
-           obtained by reviewing repeat mortgage transactions on single-family properties whose
-           mortgages have been purchased or securitized by Fannie Mae or Freddie Mac since January
-           1975.
+          prices. The HPI is a weighted, repeat-sales index, meaning that it measures average price
+          changes in repeat sales or refinancings on the same properties. This information is
+          obtained by reviewing repeat mortgage transactions on single-family properties whose
+          mortgages have been purchased or securitized by Fannie Mae or Freddie Mac since January
+          1975.
 
           The HPI serves as a timely, accurate indicator of house price trends at various geographic
           levels. It also provides housing economists with an improved analytical tool that is useful
-           for estimating changes in the rates of mortgage defaults, prepayments and housing
-           affordability in specific geographic areas.”
+          for estimating changes in the rates of mortgage defaults, prepayments and housing
+          affordability in specific geographic areas.”
 
           <p>We used their "All-Transactions" house price index, which also includes appraisal values
-          from refinance mortgages in addition to the dataset of only purchases. All of the HPIs were
-          adjusted for inflation based on 2017. For each county, we took the average of the 2000-based
-          HPI from 2008-2012 and 2013-2017 and matched them to the 2008-2012 and 2013-2017 education
-          data.</p>
+            from refinance mortgages in addition to the dataset of only purchases. All of the HPIs were
+            adjusted for inflation based on 2017. For each county, we took the average of the 2000-based
+            HPI from 2008-2012 and 2013-2017 and matched them to the 2008-2012 and 2013-2017 education
+            data.</p>
 
           <p>The data we used to determine education and migration is from the Census Bureau’s 2017-2013
             and 2012-2008 5-year American Community Surveys. For each county, we used the population
@@ -530,29 +329,13 @@
             average years of education for each county. We then derived several ratios to be used as
             potential estimators.</p>
 
-           <p> The data for technology employees and establishments is from the Census Bureau’s County
+          <p> The data for technology employees and establishments is from the Census Bureau’s County
             Business Patterns dataset. We then calculated the share of employees and firms in the
             Information and Professional, scientific and technical services sectors
             (NAICS codes 51 and 54).</p>
-
-        </div>
-       <!-- End Page Content -->
-
-      <!-- /.container-fluid -->
-
-    </div>
-    <!-- End of Main Content -->
-
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-      <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-          <span>Copyright © Team Work <sup>3</sup> Housing Market Analysis 2019</span>
         </div>
       </div>
-    </footer>
-    <!-- End of Footer -->
-
+    </div>
   </div>
   <!-- End of Content Wrapper -->
 
@@ -589,6 +372,84 @@
 
   <!-- Custom scripts for all pages-->
   <script src="js/sb-admin-2.min.js"></script>
+
+
+  <script type="text/javascript" src="js/2018.js"></script>
+  <script type="text/javascript" src="js/2017.js"></script>
+  <script type="text/javascript" src="js/2016.js"></script>
+  <script type="text/javascript" src="js/2015.js"></script>
+  <script type="text/javascript" src="js/2014.js"></script>
+  <script type="text/javascript" src="js/2013.js"></script>
+  <script type="text/javascript" src="js/2012.js"></script>
+  <script type="text/javascript" src="js/2011.js"></script>
+
+  <script type="text/javascript" src="js/config.js"></script>
+  <script type="text/javascript" src="js/logic.js"></script>
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+</div>
+<!-- End Page Content -->
+
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright © Team Work <sup>3</sup> Housing Market Analysis 2019</span>
+    </div>
+  </div>
+</footer>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top" style="display: inline;">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
 
 
 
