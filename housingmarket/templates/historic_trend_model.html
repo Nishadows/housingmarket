@@ -216,39 +216,25 @@
 
 
                 <!-- Content Row -->
-
-                <!-- Content Row -->
+                <!-- Goal div -->
                 <div class="row">
 
                     <!-- Content Column -->
 
-
                     <div class="col-lg-12 mb-4">
                         <div id="content">
 
-
-
+                            <h1>Historical Trend Based Model</h1>
 
                             <!-- Illustrations -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Lorem</h6>
+                                    <h4 class="m-0 font-weight-bold text-primary">Goal</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="text-center">
-                                        <img class="img-fluid px-3 px-sm-4 mt-3 mb-4" style="width: 25rem;"
-                                            src="img/undraw_posting_photo.svg" alt="">
-                                    </div>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse eget neque
-                                        sodales diam vestibulum fermentum in ut diam. Donec a massa semper, vehicula
-                                        libero eu, porta diam. Vivamus iaculis tortor vel nisl posuere, ac efficitur
-                                        mauris imperdiet. Ut dapibus odio in semper faucibus. Quisque non bibendum erat,
-                                        sed bibendum purus. Duis et tortor tempus mi laoreet sodales. Donec volutpat,
-                                        magna id viverra vulputate, purus augue molestie sem, a commodo velit sem eu
-                                        libero. Nullam semper et lorem eget vestibulum. Morbi sodales tristique sem, eu
-                                        tempor lorem sagittis eu.
-
-                                    </p>
+                                    <p>
+                                        Given the historical housing prices dataset, our attempt was to predict the future housing prices trend for the two urban regions – Seattle and DMV. In order to accomplish this, we applied Machine Learning techniques on our dataset.   
+                                    </p>    
                                 </div>
                             </div>
 
@@ -258,21 +244,157 @@
                         </div>
                     </div>
 
-
-
-
-
                     <!-- /.container-fluid -->
 
                 </div>
                 <!-- End of Top Container -->
-                <!--Tableau Dashboard-->
+
+                <!--Trend Model-->
 
                 <div class="row">
 
-
                     <div class="col-lg-12 mb-4">
-                       Write up
+                    
+                        <!-- Dataset div--> 
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h4 class="m-0 font-weight-bold text-primary">Dataset</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                Data has median estimated home value per square feet across two urban regions – Seattle and DMV. The data was granular at the county level. The original dataset we acquired from Zillow has data since 1992. To ensure the highest quality and cleanliness, we chose to utilize the data points since 2000. 
+                                </p>
+                                <p>
+                                To summarize, the data set included categorical features like “State” and “County”; with “Housing Price Per SqFt” and “Year” being the only numerical elements. 
+                                </p>
+                            </div>
+                        </div>
+                    <!-- Approach div--> 
+                        <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight-bold text-primary">Approach</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col-lg-4 mb-4">
+                                        <h2>Model </h2>
+
+                                        <p>As a first step in designing a predictive model we chose the Simple Linear regression model to find if there is a linear relationship between the Housing Prices and Year over Year trend of the geographical boundaries.
+                                        </p>
+                                        <p>
+                                        Scikit-Learn Python packages are used to create, fit and evaluate the model. Pandas and Matplotlib libraries are used to load, process and visualize the datasets.
+                                        </p>
+                                    </div>  
+
+                                    <div class="col-lg-4 mb-4">
+                                        <h2>Why Linear Regression? </h2>
+                                        <p>We have a dataset which contains the continuous variables that a Linear Regression would use to find a statistical relationship. 
+                                        </p>
+                                    </div> 
+
+                                    <div class="col-lg-4 mb-4">
+                                        <h2>Alternative models </h2> 
+                                        <p>
+                                        Other models such as logistic regression, decision tree etc. were considered. However, due to the limited set of features available in this dataset we could not use an alternative model.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Methodology-->
+                        <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight-bold text-primary">Methodology</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col-lg-12 mb-4">
+                                        <h2>Data Pre-processing </h2>
+
+                                        <p>
+                                            <ul>
+                                                <li>Data Split for Train and Test</li>
+                                                <li>Removal of outliers and non-numeric values
+                                                <p>i.	Outliers plot</p>
+                                                <p>ii.	Quantiles to get the lower and upper bounds</p>
+                                                </li>
+                                                <li>c.	Handling missing data, required backfilling for two years
+                                                The data was missing for two years, it was backfilled linearly
+                                                i.	Missing data plot
+                                                ii.	After backfill plot</li>
+                                                <li>d.	How (dis)similar are my train and test data?
+                                                <p>Reshaping Train and Test</p>
+                                                </li>
+                                                </ul>
+                                                </p>
+
+                                        <h2>Model Training </h2>
+                                        <p>??
+                                        </p>
+                                        <h2>Model Testing</h2>
+                                        <p>Residual Analysis Charts</p>
+                                        <h2>Model Tuning</h2>
+                                        <p>Min, Max diffs, Scores, Coefs</p>
+                                    </div> 
+
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Outcome div -->
+                    <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h4 class="m-0 font-weight-bold text-primary">Outcome</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                <div class="col-lg-12 mb-4">
+                                    <h2>?? </h2>
+
+                                    <p>                    Historical Data Trend Chart1
+
+                                            Model Prediction Trend Chart2
+                                    </p>
+                                    <p>Model prediction shows a Linear trend and increase in housing prices
+                                            Very few values are less than actual.
+                                            Difference is consistent across counties.</p>
+                                </div> 
+                            </div> 
+                        </div>  
+                    </div>                
+
+                    <!-- Conclusion -->
+                    <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h4 class="m-0 font-weight-bold text-primary">Conclusion</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                <div class="col-lg-4 mb-4">
+                                    <h2>Met the goal? </h2>
+
+                                    <p>Given the scope of the dataset, although a 100% accuracy is not achieved, the model was able to give a reasonable prediction that shows a linear trend. 
+                                    </p>
+                                </div>  
+
+                                <div class="col-lg-4 mb-4">
+                                    <h2>What could have helped for this model? </h2>
+                                    <p>Bringing in more variables such as technology company growth, employment rate, occupational inflow to urban cities etc. Training with more extensive historical data with more number of years. Including external factors such as Dollar value inflation, Overall GDP rate to the model. 
+                                    </p>
+                                </div> 
+
+                                <div class="col-lg-4 mb-4">
+                                    <h2>What’s next? </h2> 
+                                    <p>
+                                    ??
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
                     </div>
                 </div>
                 <!-- Footer -->
