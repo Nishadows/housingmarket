@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Housing Market Analysis Dashboard</title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+
+  <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css"> -->
+  <link rel="stylesheet" href="css/jquery-ui.css">
+
+
+
+  <!-- d3 JavaScript -->
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+
+  <!-- Leaflet-Choropleth JavaScript -->
+
+  <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+  <script src="js/jquery-1.9.1.min.js"></script>
+
+  <!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+  <script src="js/jquery-ui.js"></script>
+
+
+  <!-- App CSS -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/htmlstyle.css">
+
+
+
+
+  <style type="text/css">
+    /* Chart.js */
+    @keyframes chartjs-render-animation {
+      from {
+        opacity: .99
+      }
+
+      to {
+        opacity: 1
+      }
+    }
+
+    .chartjs-render-monitor {
+      animation: chartjs-render-animation 1ms
+    }
+
+    .chartjs-size-monitor,
+    .chartjs-size-monitor-expand,
+    .chartjs-size-monitor-shrink {
+      position: absolute;
+      direction: ltr;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      overflow: hidden;
+      pointer-events: none;
+      visibility: hidden;
+      z-index: -1
+    }
+
+    .chartjs-size-monitor-expand>div {
+      position: absolute;
+      width: 1000000px;
+      height: 1000000px;
+      left: 0;
+      top: 0
+    }
+
+    .chartjs-size-monitor-shrink>div {
+      position: absolute;
+      width: 200%;
+      height: 200%;
+      left: 0;
+      top: 0
+    }
+    .blockquote { padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 18px;
+    border-left: 5px solid #3f5372; color: #3f5372; }
+
+.blockquote.alignright { max-width: 50%; float:right;  color: #3f5372; text-align:right;border-right: 5px solid #d37fb0; border-left:transparent; }
+
+.blockquote.alignleft { max-width: 50%;float:left;}
+  </style>
+</head>
+
+
+
+<body id="page-top">
+
+  <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+  <script src="js/jquery-1.9.1.min.js"></script>
+
+  <!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+  <script src="js/jquery-ui.js"></script>
+
+
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+    <!-- Sidebar -->
+    <ul class="navbar-nav bg-gray-800 sidebar sidebar-dark accordion" id="accordionSidebar">
+
+      <!-- Sidebar - Brand -->
+      <a class="sidebar-brand d-flex align-items-center justify-content-center text-warning" href="/">
+        <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-laugh-wink"></i>
+        </div>
+        <div class="sidebar-brand-text mx-3">Technology and Housing</div>
+      </a>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <!-- Nav Item - Dashboard -->
+      <li class="nav-item active">
+        <a class="nav-link" href="/dashboard">
+          <i class="fas fa-fw fa-tachometer-alt"></i>
+          <span>Dashboard</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Interface
+      </div>
+
+      <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+          aria-controls="collapseTwo">
+          <i class="fas fa-fw fa-globe"></i>
+          <span>DMV and Seattle Metro Snapshot</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">Yearly Trend View:</h6>
+            <a class="collapse-item" href="seattleviz">Seattle</a>
+            <a class="collapse-item" href="dmvviz">DMV</a>
+          </div>
+        </div>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <!-- Heading -->
+      <div class="sidebar-heading">
+        Machine Learning
+      </div>
+
+
+      <!-- Nav Item - Charts -->
+      <li class="nav-item">
+        <a class="nav-link" href="blank.html">
+          <i class="fas fa-fw fa-chart-area"></i>
+          <span>Historical Model</span></a>
+      </li>
+
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="tech_education_model.html">
+          <i class="fas fa-fw fa-table"></i>
+          <span>Tech & Education Model</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider d-none d-md-block">
+
+      <!-- Sidebar Toggler (Sidebar) -->
+      <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+      </div>
+
+    </ul>
+    <!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <!-- Begin Page Content -->
+      <div class="container-fluid">
+
+
+        <!-- Content Row -->
+
+        <!-- Illustrations -->
+      </div>
+
+      <div class="row">
+
+        <div class="col-lg-12" style="padding: 50px">
+
+
+          <h2>Motivation and Overview</h2>
+
+          <p>The motivation behind this project is to make an informed predication regarding the impact
+            that Amazon HQ2 might have on Arlington residents and housing affordability. We created a
+            machine learning model that utilizes multivariate linear regression and variance inflation
+            factors to determine which factors related to technology and technology workers predict
+            housing affordability. This analysis spans ___ counties across the United States, with the
+            intention to apply what we see in national trends to Arlington, or potentially any locale
+            experiencing a boom in its technology sector.</p>
+
+
+          <h2>Findings</h2>
+
+          <p>Our premise assumes that technology companies attract high-skilled workers in the technology
+            sector, and that these employees typically have more education and higher incomes. Our
+            hypothesis is that technology companies, by attracting these employees in large numbers,
+            may cause increases in housing prices due to both higher demand for housing and a higher
+            willingness to pay.</p>
+          <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4" stle="padding-left: 1000px">
+              <center>
+                <table border="0" class="table table-striped">
+                  <thead>
+                    <tr style="text-align: center;">
+                      <th>Variable</th>
+                      <th>Coefficient</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>North Dakota</td>
+                      <td>0.235118</td>
+                    </tr>
+                    <tr>
+                      <td>District of Columbia</td>
+                      <td>0.127124</td>
+                    </tr>
+                    <tr>
+                      <td>Wyoming</td>
+                      <td>0.108699</td>
+                    </tr>
+                    <tr>
+                      <td>Hawaii</td>
+                      <td>0.104170</td>
+                    </tr>
+                    <tr>
+                      <td>Share of employees in the tech industry</td>
+                      <td>0.093010</td>
+                    </tr>
+                    <tr>
+                      <td>Years of education: moved population minus settled</td>
+                      <td>0.091691</td>
+                    </tr>
+                    <tr>
+                      <td>Virginia</td>
+                      <td>0.071996</td>
+                    </tr>
+                    <tr>
+                      <td>California</td>
+                      <td>0.045889</td>
+                    </tr>
+                    <tr>
+                      <td>Maryland</td>
+                      <td>0.044081</td>
+                    </tr>
+                </table>
+              </center>
+            </div>
+            <div class="col-md-4"></div>
+          </div>
+          <p>Our model with an R<sup>2</sup> score of 0.57 finds that the top four predictors of
+            housing affordability for
+            a county were whether the county was located in
+            North Dakota, DC, Wyoming, or Hawaii, with coefficients of 0.24, 0.13,0.11, and 0.10,
+            respectively . This was not a surprising result – the particulars of geographic
+            constraints, local economies, and other factors specific to a region are significant
+            influences in housing affordability. Our next two predictors were two variables we were
+            particularly interested in - the share of employees in the tech industry, which
+            predicted a 0.10 increase in the HPI, and the difference in year of education between
+            the moved and settled populations, which predicted a 0.10 increase. This would imply that
+            an increase in the concentration of workers in the technology sector and a more educated
+            population of new residents both predict higher housing prices and
+            therefore lower affordability.</p>
+            <center>
+            <img src="img/residuals.png" alt="Chania">
+          </center>
+          <h2>Methodology</h2>
+
+          <p>Our analysis utilizes multivariate linear regression with Scikit-learn. We attempt to estimate
+            the HPI for each county using the following variables:</p>
+          <ul>
+            <li>Years of education: settled population</li>
+            <li>Years of education: moved population</li>
+            <li>Years of education: moved minus settled population</li>
+            <li>Moved/total population ratio</li>
+            <li>Moved/settled population ratio</li>
+            <li>Educational attainment: graduate/bachelor's ratio</li>
+            <li>Educational attainment: with/without degree ratio</li>
+            <li>Educational attainment: graduate/total population ratio</li>
+            <li>Educational attainment: bachelor's/total population ratio</li>
+            <li>Percent of employees in technology sector</li>
+            <li>Percent of establishments in technology sector</li>
+            <li>State</li>
+          </ul>
+
+
+          <p>The model calculates the variance inflation factor for all of the variables and drops any with
+            a score over 5. We then run the linear regression with the remaining variables to get our residuals
+            and coefficients. Our data and model can be found here.</p>
+
+          <h2>Data</h2>
+
+          <p>To measure housing affordability more broadly, we used the Housing Price Index (HPI)
+            developed by the Federal Housing Finance Agency (FHFA). From their <a href=
+            "https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx">website:</a></p>
+
+
+            <blockquote class="blockquote" cite="https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx">
+              The FHFA House Price Index (HPI) is a broad measure of the movement of single-family house
+              prices. The HPI is a weighted, repeat-sales index, meaning that it measures average price
+              changes in repeat sales or refinancings on the same properties. This information is
+              obtained by reviewing repeat mortgage transactions on single-family properties whose
+              mortgages have been purchased or securitized by Fannie Mae or Freddie Mac since January
+              1975.
+
+              The HPI serves as a timely, accurate indicator of house price trends at various geographic
+              levels. It also provides housing economists with an improved analytical tool that is useful
+              for estimating changes in the rates of mortgage defaults, prepayments and housing
+              affordability in specific geographic areas.
+            </blockquote>
+
+          <p>We used their "All-Transactions" house price index, which also includes appraisal values
+            from refinance mortgages in addition to the dataset of only purchases. All of the HPIs were
+            adjusted for inflation based on 2017. For each county, we took the average of the 2000-based
+            HPI from 2008-2012 and 2013-2017 and matched them to the 2008-2012 and 2013-2017 education
+            data.</p>
+
+          <p>The data we used to determine education and migration is from the Census Bureau’s 2017-2013
+            and 2012-2008 5-year American Community Surveys. For each county, we used the population
+            counts of educational attainment and migration broken down by education to calculate the
+            average years of education for each county. We then derived several ratios to be used as
+            potential estimators.</p>
+
+          <p> The data for technology employees and establishments is from the Census Bureau’s County
+            Business Patterns dataset. We then calculated the share of employees and firms in the
+            Information and Professional, scientific and technical services sectors
+            (NAICS codes 51 and 54).</p>
+
+        </div>
+        <!-- End Page Content -->
+        <div class='tableauPlaceholder' id='viz1566592634903' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;Project3_15656614848980&#47;Dashboard1&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='Project3_15656614848980&#47;Dashboard1' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Pr&#47;Project3_15656614848980&#47;Dashboard1&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1566592634903');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.minWidth='420px';vizElement.style.maxWidth='950px';vizElement.style.width='100%';vizElement.style.minHeight='587px';vizElement.style.maxHeight='887px';vizElement.style.height=(divElement.offsetWidth*0.75)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Technology and Housing Market Analysis 2019</span>
+          </div>
+        </div>
+    </div>
+  </div>
+  <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top" style="display: inline;">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+
+  <script type="text/javascript" src="js/2018.js"></script>
+  <script type="text/javascript" src="js/2017.js"></script>
+  <script type="text/javascript" src="js/2016.js"></script>
+  <script type="text/javascript" src="js/2015.js"></script>
+  <script type="text/javascript" src="js/2014.js"></script>
+  <script type="text/javascript" src="js/2013.js"></script>
+  <script type="text/javascript" src="js/2012.js"></script>
+  <script type="text/javascript" src="js/2011.js"></script>
+
+  <script type="text/javascript" src="js/config.js"></script>
+  <script type="text/javascript" src="js/logic.js"></script>
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+</div>
+<!-- End Page Content -->
+
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+  <div class="container my-auto">
+    <div class="copyright text-center my-auto">
+      <span>Copyright © Team Work <sup>3</sup> Housing Market Analysis 2019</span>
+    </div>
+  </div>
+</footer>
+<!-- End of Footer -->
+
+</div>
+<!-- End of Content Wrapper -->
+
+</div>
+<!-- End of Page Wrapper -->
+
+<!-- Scroll to Top Button-->
+<a class="scroll-to-top rounded" href="#page-top" style="display: inline;">
+  <i class="fas fa-angle-up"></i>
+</a>
+
+<!-- Logout Modal-->
+<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">×</span>
+        </button>
+      </div>
+      <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+        <a class="btn btn-primary" href="login.html">Logout</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap core JavaScript-->
+<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="js/sb-admin-2.min.js"></script>
+
+
+
+
+
+</body>
+
+</html>

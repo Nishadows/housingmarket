@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Housing Market Analysis Trend Model</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+
+    <!-- Leaflet CSS & JS-->
+    <!-- <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" /> -->
+    <link rel="stylesheet" href="css/leaflet.css">
+    <!--[if lte IE 8
+          ]><link
+            rel="stylesheet"
+            href="http://cdn.leafletjs.com/leaflet-0.5.1/leaflet.ie.css"
+        /><![endif]-->
+
+    <!-- <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" type="text/css"> -->
+    <link rel="stylesheet" href="css/jquery-ui.css">
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css"
+        integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin="">
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js"
+        integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+
+    <!-- d3 JavaScript -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+
+    <!-- Leaflet-Choropleth JavaScript -->
+
+    <script type="text/javascript" src="js/choropleth.js"></script>
+
+    <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+
+    <!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+    <script src="js/jquery-ui.js"></script>
+
+    <script type="text/javascript" src="js/slider.js"></script>
+
+    <!-- App CSS -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/htmlstyle.css">
+
+
+
+
+    <style type="text/css">
+        /* Chart.js */
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: .99
+            }
+
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            animation: chartjs-render-animation 1ms
+        }
+
+        .chartjs-size-monitor,
+        .chartjs-size-monitor-expand,
+        .chartjs-size-monitor-shrink {
+            position: absolute;
+            direction: ltr;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            overflow: hidden;
+            pointer-events: none;
+            visibility: hidden;
+            z-index: -1
+        }
+
+        .chartjs-size-monitor-expand>div {
+            position: absolute;
+            width: 1000000px;
+            height: 1000000px;
+            left: 0;
+            top: 0
+        }
+
+        .chartjs-size-monitor-shrink>div {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            left: 0;
+            top: 0
+        }
+    </style>
+</head>
+
+
+
+<body id="page-top">
+
+
+    <!-- The div where we will inject our map -->
+    <!-- <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> -->
+    <script src="js/jquery-1.9.1.min.js"></script>
+
+    <!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+    <script src="js/jquery-ui.js"></script>
+
+
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gray-800 sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center text-warning" href="/">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
+                </div>
+                <div class="sidebar-brand-text mx-3">Technology and Housing</sup></div>
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link" href="/dashboard">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Interface
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-globe"></i>
+                    <span>DMV and Seattle Metro Snapshot</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Yearly Trend View:</h6>
+                        <a class="collapse-item" href="seattleviz">Seattle</a>
+                        <a class="collapse-item" href="dmvviz">DMV</a>
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Machine Learning
+            </div>
+
+
+            <!-- Nav Item - Charts -->
+            <li class="nav-item">
+                <a class="nav-link" href="historic_trend_model">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Historical Model</span></a>
+            </li>
+
+            <!-- Nav Item - Tables -->
+            <li class="nav-item">
+                <a class="nav-link" href="tech_education_model">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Tech & Education Model</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <!-- Begin Page Content -->
+            <div class="container-fluid">
+
+
+                <!-- Content Row -->
+                <!-- Goal div -->
+                <div class="row">
+
+                    <!-- Content Column -->
+
+                    <div class="col-lg-12 mb-4">
+                        <div id="content">
+
+                            <h1> Historical Trend Based Predictive Model</h1>
+
+                            <!-- Illustrations -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight-bold text-primary">Goal</h4>
+                                </div>
+                                <div class="card-body">
+                                    <p>
+                                        Given the historical housing prices dataset, our attempt was to predict the future housing prices trend for the two urban regions – Seattle and DMV. In order to accomplish this, we applied Machine Learning techniques on our dataset.   
+                                    </p>    
+                                </div>
+                            </div>
+
+                            <!-- Approach -->
+
+
+                        </div>
+                    </div>
+
+                    <!-- /.container-fluid -->
+
+                </div>
+                <!-- End of Top Container -->
+
+                <!--Trend Model-->
+
+                <div class="row">
+
+                    <div class="col-lg-12 mb-4">
+                    
+                        <!-- Dataset div--> 
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h4 class="m-0 font-weight-bold text-primary">Dataset</h4>
+                                Acknowledgement:        
+                                Zillow – Economic Data - Home Values
+                                        <a href="https://www.zillow.com/research/data/" target="_blank">Median Home Value Per Sq Ft ($) Per County</a>    
+                            </div>
+                            <div class="card-body">
+                                <p>
+                                Data has median estimated home value per square feet across two urban regions – Seattle and DMV. The data was granular at the county level. The original dataset we acquired from Zillow has data since 1992. To ensure the highest quality and cleanliness, we chose to utilize the data points since 2000. 
+                                </p>
+                                <p>
+                                To summarize, the data set included categorical features like “State” and “County”; with “Housing Price Per SqFt” and “Year” being the only numerical elements. 
+                                </p>
+                            </div>
+                        </div>
+                    <!-- Approach div--> 
+                        <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight-bold text-primary">Approach</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col-lg-4 mb-4">
+                                        <h2>Model </h2>
+
+                                        <p>As a first step in designing a predictive model we chose the Simple Linear regression model to find if there is a linear relationship between the Housing Prices and Year over Year trend of the geographical boundaries.
+                                        </p>
+                                        <p>
+                                        Scikit-Learn Python packages are used to create, train and evaluate the model. Pandas and Matplotlib libraries are used to load, process and visualize the datasets.
+                                        </p>
+                                    </div>  
+
+                                    <div class="col-lg-4 mb-4">
+                                        <h2>Why Linear Regression? </h2>
+                                        <p>We have a dataset which contains the continuous variables that a Linear Regression would use to find a statistical relationship. 
+                                        </p>
+                                    </div> 
+
+                                    <div class="col-lg-4 mb-4">
+                                        <h2>Alternative models </h2> 
+                                        <p>
+                                        Other models such as logistic regression, decision tree etc. were considered. However, due to the limited set of features available in this dataset we could not use an alternative model.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Methodology-->
+                        <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h4 class="m-0 font-weight-bold text-primary">Methodology</h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                    <div class="col-lg-12 mb-4">
+                                        <h2>Data Pre-processing </h2>
+                                            <ul>
+                                                <li><p>Data Split for Training and Testing – our dataset was split into two equal parts based on the year. Data from 2000 – 2010 was used for training and the other remaining was used for testing the accuracy of the model.</p>
+                                                </li>
+                                                <li><p>Removal of outliers and non-numeric values – as we started analyzing our dataset, we observed some outliers in prices and also some missing values. This warranted a cleanup of the data prior to feeding it to the model for training. We made an attempt to substitute the missing data using linear interpolation technique. Quantiles of 0.25 - 0.75 were used to get the lower and upper bounds for removing outliers. </p>
+                                                <p>Following illustrates how the missing data and data with outliers is handled.</p>
+                                                <div class="row">
+                                                    <div class="col-lg-5 mb-4">
+                                                        <h6 class="text-center">Before backfill</h6>
+                                                        <img src="img/beforebackfill.png" width=100% alt="img/beforebackfill.png">
+                                                    </div>
+                                                    <div class="col-lg-5 mb-4">
+                                                        <h6 class="text-center">After backfill</h6>
+                                                        <img src="img/afterbackfill.png" width=100% alt="img/afterbackfill.png">
+                                                    </div> 
+                                                </div>
+                                                </li>
+                                                
+                                                <li><p>(dis)similaraties between train and test datasets – after dividing the original dataset into train and test parts, there were dissimilarities in the shapes. Not all Counties that were present in the training dataset were available in testing dataset and vice versa. To rectify this, we reshaped our datasets to match by augmenting/removing the mismatched county data.</p>
+                                                </li>
+                                            </ul>
+                                        <br>
+                                        <h2>Model Training, Testing, Tuning </h2>
+                                        <p>Our historical housing prices data was fed to the Scikit-Learn’s linear regression model for training. We then tested the model using the training the dataset. We also calculated the residuals and coefficients which would help determine the accuracy of the model. 
+                                        </p> 
+                                    
+                                        <div class="row">
+                                            <div class="col-lg-5 mb-4">
+                                                <h6 class="text-center">Residuals on Training Set</h6>
+                                                <img src="img/residuals_trainingset.png" width=100% alt="img/residuals_trainingset.png">
+                                            </div>
+                                            <div class="col-lg-5 mb-4">
+                                                <h6 class="text-center">Residuals on Testing Set</h6>
+                                                <img src="img/residuals_testingset.png" width=100% alt="img/residuals_testingset.png">
+                                            </div> 
+                                        </div>
+                                    <br>
+                                    
+                                    <div class="row">
+                                            <div class="col-lg-5 mb-4">
+                                                <h6 class="text-center">Some key scores and findings</h6>
+                                        <table border="0" class="table table-striped"> 
+                                            <thead>
+                                                <tr style="text-align: center;">
+                                                    <th>Variable</th>
+                                                    <th>Coefficient</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>  
+                                                    <td>Year Coefficient</td>
+                                                    <td>6.45359146e+00</td>
+                                                </tr>
+                                                <tr>  
+                                                    <td>State_DC</td>
+                                                    <td>-8.330345e+12</td>
+                                                </tr>
+                                                <tr>  
+                                                    <td>State_MD</td>
+                                                    <td>-1.769454e+13</td>
+                                                </tr>
+                                                <tr>  
+                                                    <td>State_VA</td>
+                                                    <td>-1.769454e+13</td>
+                                                </tr>
+                                                <tr>  
+                                                    <td>State_WA</td>
+                                                    <td>-1.769454e+13</td>
+                                                </tr>
+                                                <tr>  
+                                                    <td>R2 Score</td>
+                                                    <td>-1.6219420457962928</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        </div>
+                                        <div class="col-lg-5 mb-4">
+                                        <p>
+                                            Based on the coefficient values of all variables, it shows that the Time factor has the distinct coefficient value than all the counties. This could mean that the general growth of housing prices over a period of time plays as the key factor in this model prediction. The coefficients of all counties are consistent and do not infer any significant impact in prediction.
+                                        </p>
+                                        </div>
+                                    </div>  
+                                </div> 
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- Outcome div -->
+                    <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h4 class="m-0 font-weight-bold text-primary">Outcome</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                <div class="col-lg-12 mb-4">
+                                    <h2>Comparison of Predict and Historical Trends </h2>
+                                    <p>As illustrated in the below plots the Model prediction shows a Linear trend and increase in housing prices from Year 2011 - 2018 across all counties. However, the actual prices of years 2011 - 2018 are not as high as predicted.</p>
+
+                                    <div class="row">
+                                        <div class="col-lg-4 mb-4">
+                                            <h6 class="text-center">Historical of Year 2000 - 2010</h6>
+                                            <img src="img/historical_trend.png" width=100% alt="img/historical_trend.png">
+                                        </div> 
+                                        <div class="col-lg-4 mb-4">
+                                                <h6 class="text-center">Prediction of Year 2011 - 2018</h6>
+                                                <img src="img/predicted_trend.png" width=100% alt="img/predicted_trend.png">
+                                        </div>
+                                        <div class="col-lg-4 mb-4">
+                                                <h6 class="text-center">Actual Trend of Year 2011 - 2018</h6>
+                                                <img src="img/actual_trend.png" width=100% alt="img/actual_trend.png">
+                                        </div> 
+                                    </div>
+                                </div> 
+                            </div> 
+                        </div>  
+                    </div>                
+
+                    <!-- Conclusion -->
+                    <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <h4 class="m-0 font-weight-bold text-primary">Conclusion</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                <div class="col-lg-4 mb-4">
+                                    <h2>Met the goal? </h2>
+
+                                    <p>Given the scope of the dataset, although a 100% accuracy is not achieved, the model was able to give a reasonable prediction that shows a linear trend based on the years 2000 - 2010 . 
+                                    </p>
+                                </div>  
+
+                                <div class="col-lg-4 mb-4">
+                                    <h2>What could have helped for this model? </h2>
+                                    <p>Bringing in more dependent and independent variables such as year built, technology company growth, employment rate, occupational inflow to urban cities etc. Training with more extensive, richer in terms of years, as well as larger volume of data. Including external factors such as Dollar($) value inflation, Overall GDP rate etc. 
+                                    </p>
+                                </div> 
+
+                                <div class="col-lg-4 mb-4">
+                                    <h2>What’s next? </h2> 
+                                    <p>
+                                    Visit our <a href="tech_education_model">Technology & Education Model </a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    </div>
+                </div>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright © Team Work <sup>3</sup> Housing Market Analysis 2019</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top" style="display: inline;">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.html">Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
+
+
+        <script type="text/javascript" src="js/2018.js"></script>
+        <script type="text/javascript" src="js/2017.js"></script>
+        <script type="text/javascript" src="js/2016.js"></script>
+        <script type="text/javascript" src="js/2015.js"></script>
+        <script type="text/javascript" src="js/2014.js"></script>
+        <script type="text/javascript" src="js/2013.js"></script>
+        <script type="text/javascript" src="js/2012.js"></script>
+        <script type="text/javascript" src="js/2011.js"></script>
+
+        <script type="text/javascript" src="js/config.js"></script>
+        <script type="text/javascript" src="js/logic.js"></script>
+
+
+
+
+
+</body>
+
+</html>
