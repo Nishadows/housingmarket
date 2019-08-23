@@ -12,7 +12,7 @@ from flask import Flask, jsonify, render_template
 from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__, static_url_path='', static_folder='static')
-
+app.config["TEMPLATES_AUTO_RELOAD"] = True
 
 @app.route("/")
 def index():
@@ -21,8 +21,7 @@ def index():
 
 @app.route("/dashboard")
 def viewdashboard():
-    return render_template("dashboard.html")
-
+    return render_template("AGCdashboard.html")
 
 @app.route("/dmvviz")
 def visual():
@@ -32,7 +31,9 @@ def visual():
 def visual2():
     return render_template("visual2.html")
 
-
+@app.route("/tech_education_model")
+def tech_education_model():
+    return render_template("tech_education_model.html")
 
 
 if __name__ == "__main__":
