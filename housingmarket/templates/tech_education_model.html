@@ -92,6 +92,14 @@
       left: 0;
       top: 0
     }
+    .blockquote { padding: 10px 20px;
+    margin: 0 0 20px;
+    font-size: 18px;
+    border-left: 5px solid #3f5372; color: #3f5372; }
+
+.blockquote.alignright { max-width: 50%; float:right;  color: #3f5372; text-align:right;border-right: 5px solid #d37fb0; border-left:transparent; }
+
+.blockquote.alignleft { max-width: 50%;float:left;}
   </style>
 </head>
 
@@ -229,7 +237,7 @@
             <div class="col-md-4"></div>
             <div class="col-md-4" stle="padding-left: 1000px">
               <center>
-                <table border="1" class="table-striped">
+                <table border="0" class="table table-striped">
                   <thead>
                     <tr style="text-align: center;">
                       <th>Variable</th>
@@ -278,22 +286,40 @@
             </div>
             <div class="col-md-4"></div>
           </div>
-          <p>Our model with a score of 0.56 finds that the top ___ predictors of housing affordability of
-            a county were whether the county was located in ___, ___, or ___, with coefficients of ___, ___,
-            and ___, respectively . This was not a surprising result – the particulars of geographic
-            constraints, local economies, and other factors specific to a region are significant influences
-            in housing affordability. Our next two predictors were two variables we were particularly
-            interested in - _____, which predicted a ____ increase in the HPI, and _____, which predicted
-            a _____ increase. This would imply that a more educated population of new residents and the
-            concentration of workers in the technology sector both predict higher housing prices and
+          <p>Our model with an R<sup>2</sup> score of 0.57 finds that the top four predictors of
+            housing affordability for
+            a county were whether the county was located in
+            North Dakota, DC, Wyoming, or Hawaii, with coefficients of 0.24, 0.13,0.11, and 0.10,
+            respectively . This was not a surprising result – the particulars of geographic
+            constraints, local economies, and other factors specific to a region are significant
+            influences in housing affordability. Our next two predictors were two variables we were
+            particularly interested in - the share of employees in the tech industry, which
+            predicted a 0.10 increase in the HPI, and the difference in year of education between
+            the moved and settled populations, which predicted a 0.10 increase. This would imply that
+            an increase in the concentration of workers in the technology sector and a more educated
+            population of new residents both predict higher housing prices and
             therefore lower affordability.</p>
-
+            <center>
+            <img src="img/residuals.png" alt="Chania">
+          </center>
           <h2>Methodology</h2>
 
           <p>Our analysis utilizes multivariate linear regression with Scikit-learn. We attempt to estimate
             the HPI for each county using the following variables:</p>
-
-          ________
+          <ul>
+            <li>Years of education: settled population</li>
+            <li>Years of education: moved population</li>
+            <li>Years of education: moved minus settled population</li>
+            <li>Moved/total population ratio</li>
+            <li>Moved/settled population ratio</li>
+            <li>Educational attainment: graduate/bachelor's ratio</li>
+            <li>Educational attainment: with/without degree ratio</li>
+            <li>Educational attainment: graduate/total population ratio</li>
+            <li>Educational attainment: bachelor's/total population ratio</li>
+            <li>Percent of employees in technology sector</li>
+            <li>Percent of establishments in technology sector</li>
+            <li>State</li>
+          </ul>
 
 
           <p>The model calculates the variance inflation factor for all of the variables and drops any with
@@ -303,19 +329,23 @@
           <h2>Data</h2>
 
           <p>To measure housing affordability more broadly, we used the Housing Price Index (HPI)
-            developed by the Federal Housing Finance Agency (FHFA). From their website:</p>
+            developed by the Federal Housing Finance Agency (FHFA). From their <a href=
+            "https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx">website:</a></p>
 
-          “The FHFA House Price Index (HPI) is a broad measure of the movement of single-family house
-          prices. The HPI is a weighted, repeat-sales index, meaning that it measures average price
-          changes in repeat sales or refinancings on the same properties. This information is
-          obtained by reviewing repeat mortgage transactions on single-family properties whose
-          mortgages have been purchased or securitized by Fannie Mae or Freddie Mac since January
-          1975.
 
-          The HPI serves as a timely, accurate indicator of house price trends at various geographic
-          levels. It also provides housing economists with an improved analytical tool that is useful
-          for estimating changes in the rates of mortgage defaults, prepayments and housing
-          affordability in specific geographic areas.”
+            <blockquote class="blockquote" cite="https://www.fhfa.gov/DataTools/Downloads/Pages/House-Price-Index.aspx">
+              The FHFA House Price Index (HPI) is a broad measure of the movement of single-family house
+              prices. The HPI is a weighted, repeat-sales index, meaning that it measures average price
+              changes in repeat sales or refinancings on the same properties. This information is
+              obtained by reviewing repeat mortgage transactions on single-family properties whose
+              mortgages have been purchased or securitized by Fannie Mae or Freddie Mac since January
+              1975.
+
+              The HPI serves as a timely, accurate indicator of house price trends at various geographic
+              levels. It also provides housing economists with an improved analytical tool that is useful
+              for estimating changes in the rates of mortgage defaults, prepayments and housing
+              affordability in specific geographic areas.
+            </blockquote>
 
           <p>We used their "All-Transactions" house price index, which also includes appraisal values
             from refinance mortgages in addition to the dataset of only purchases. All of the HPIs were
@@ -335,20 +365,20 @@
             (NAICS codes 51 and 54).</p>
 
         </div>
-       <!-- End Page Content -->
+        <!-- End Page Content -->
 
-      <!-- /.container-fluid -->
+        <!-- /.container-fluid -->
 
-    </div>
-    <!-- End of Main Content -->
-
-    <!-- Footer -->
-    <footer class="sticky-footer bg-white">
-      <div class="container my-auto">
-        <div class="copyright text-center my-auto">
-          <span>Copyright © Technology and Housing Market Analysis 2019</span>
-        </div>
       </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright © Technology and Housing Market Analysis 2019</span>
+          </div>
+        </div>
     </div>
   </div>
   <!-- End of Content Wrapper -->
