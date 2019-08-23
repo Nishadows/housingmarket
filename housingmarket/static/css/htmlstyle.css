@@ -16,3 +16,5 @@
     width:650px;
     height:650px;
 }
+
+#tabBootErr { display: none !important }

@@ -1,15 +1,15 @@
 // var sliderControl=null
 
-var seattle = L.map("seattle", {center: [47.5, -121.75], zoom: 8});
+// var seattle = L.map("seattle", {center: [47.5, -121.75], zoom: 8});
 var nova = L.map("nova", {center: [38.9, -77.25], zoom: 9});
 
 
-L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
-  attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
-  maxZoom: 18,
-  id: "mapbox.streets",
-  accessToken: API_KEY
-}).addTo(seattle);
+// L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
+//   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
+//   maxZoom: 18,
+//   id: "mapbox.streets",
+//   accessToken: API_KEY
+// }).addTo(seattle);
 
 L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
   attribution: "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>",
@@ -176,10 +176,10 @@ rentallegend.onAdd = function (map) {
   return div;
 };
 
-rentallegend.addTo(seattle);
+// rentallegend.addTo(seattle);
 rentallegend.addTo(nova);
 
-homelegend.addTo(seattle);
+// homelegend.addTo(seattle);
 homelegend.addTo(nova);
 
 
