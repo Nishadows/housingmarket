@@ -1,4 +1,4 @@
-var apiKey="";
+var APIKEY=config.apikey;
 
 /** function to select data
 * @param {array} rows
@@ -11,7 +11,7 @@ function unpack(rows,index){
 }
 
 function getYearlyData(){
-    var queryURL=`https://www.quandl.com/api/v3/datasets/NAHB/HOI_AREA_SEATTLEBELLEVUEEVERETTWA.json?start_date=1991-03-31&end_date=2019-03-31&collapse=yearly&api_key=${apiKey}`;
+    var queryURL=`https://www.quandl.com/api/v3/datasets/NAHB/HOI_AREA_SEATTLEBELLEVUEEVERETTWA.json?start_date=1991-03-31&end_date=2019-03-31&collapse=yearly&api_key=${APIKEY}`;
     d3.json(queryURL).then(function(data){
         var quarter=unpack(data.dataset.data,0);
         var medianprice=unpack(data.dataset.data,1);
@@ -23,7 +23,7 @@ function getYearlyData(){
 }
 
 function buildPlot(){
-    var url=`https://www.quandl.com/api/v3/datasets/NAHB/HOI_AREA_SEATTLEBELLEVUEEVERETTWA.json?start_date=1991-03-31&end_date=2019-03-31&api_key=${apiKey}`;
+    var url=`https://www.quandl.com/api/v3/datasets/NAHB/HOI_AREA_SEATTLEBELLEVUEEVERETTWA.json?start_date=1991-03-31&end_date=2019-03-31&api_key=${APIKEY}`;
     d3.json(url).then(function(data){
         var name=data.dataset.name;
         var metroarea=data.dataset.dataset_code;

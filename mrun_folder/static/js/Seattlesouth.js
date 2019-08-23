@@ -1,4 +1,4 @@
-var apiKey="";
+var APIKEY=config.apikey;
 
 // var APIKey=config.apikey;
 // import apiConfig from 'config';
@@ -14,14 +14,14 @@ function unpack(rows,index){
 }
 
 function getYearlyData(){
-    var queryURL=`https://www.quandl.com/api/v3/datasets/NAHB/HOI_AREA_TACOMALAKEWOODWA.json?start_date=1991-03-31&end_date=2019-03-31&collapse=yearly&api_key=${apiKey}`;
+    var queryURL=`https://www.quandl.com/api/v3/datasets/NAHB/HOI_AREA_TACOMALAKEWOODWA.json?start_date=1991-03-31&end_date=2019-03-31&collapse=yearly&api_key=${APIKEY}`;
     d3.json(queryURL).then(function(data){
         
     });
 }
 
 function buildPlot(){
-    var url=`https://www.quandl.com/api/v3/datasets/NAHB/HOI_AREA_TACOMALAKEWOODWA.json?start_date=1991-03-31&end_date=2019-03-31&api_key=${apiKey}`;
+    var url=`https://www.quandl.com/api/v3/datasets/NAHB/HOI_AREA_TACOMALAKEWOODWA.json?start_date=1991-03-31&end_date=2019-03-31&api_key=${APIKEY}`;
     d3.json(url).then(function(data){
         var startDate=data.dataset.start_date;
         var endDate=data.dataset.end_state;
