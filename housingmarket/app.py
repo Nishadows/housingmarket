@@ -35,6 +35,10 @@ def visual2():
 def tech_education_model():
     return render_template("tech_education_model.html")
 
+@app.route("/historic_trend_model")
+def historic_trend_model():
+    return render_template("historic_trend_model.html")
 
+        
 if __name__ == "__main__":
     app.run()
