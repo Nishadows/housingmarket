@@ -133,9 +133,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center text-warning" href="/">
-                <div class="sidebar-brand-icon rotate-n-15">
-                    <i class="fas fa-laugh-wink"></i>
-                </div>
+
                 <div class="sidebar-brand-text mx-3">Technology and Housing</sup></div>
             </a>
 
@@ -159,18 +157,19 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link" href="localsnapshot">DMV and Seattle Metro Snapshot</a>
+               <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                 aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-globe"></i>
                     <span>DMV and Seattle Metro Snapshot</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Yearly Trend View:</h6>
-                        <a class="collapse-item" href="seattleviz">Seattle</a>
-                        <a class="collapse-item" href="dmvviz">DMV</a>
+
+
+
                     </div>
-                </div>
+                </div> -->
             </li>
 
             <!-- Divider -->
@@ -233,8 +232,8 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        Given the historical housing prices dataset, our attempt was to predict the future housing prices trend for the two urban regions – Seattle and DMV. In order to accomplish this, we applied Machine Learning techniques on our dataset.   
-                                    </p>    
+                                        Given the historical housing prices dataset, our attempt was to predict the future housing prices trend for the two urban regions – Seattle and DMV. In order to accomplish this, we applied Machine Learning techniques on our dataset.
+                                    </p>
                                 </div>
                             </div>
 
@@ -254,25 +253,25 @@
                 <div class="row">
 
                     <div class="col-lg-12 mb-4">
-                    
-                        <!-- Dataset div--> 
+
+                        <!-- Dataset div-->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
                                 <h4 class="m-0 font-weight-bold text-primary">Dataset</h4>
-                                Acknowledgement:        
+                                Acknowledgement:
                                 Zillow – Economic Data - Home Values
-                                        <a href="https://www.zillow.com/research/data/" target="_blank">Median Home Value Per Sq Ft ($) Per County</a>    
+                                        <a href="https://www.zillow.com/research/data/" target="_blank">Median Home Value Per Sq Ft ($) Per County</a>
                             </div>
                             <div class="card-body">
                                 <p>
-                                Data has median estimated home value per square feet across two urban regions – Seattle and DMV. The data was granular at the county level. The original dataset we acquired from Zillow has data since 1992. To ensure the highest quality and cleanliness, we chose to utilize the data points since 2000. 
+                                Data has median estimated home value per square feet across two urban regions – Seattle and DMV. The data was granular at the county level. The original dataset we acquired from Zillow has data since 1992. To ensure the highest quality and cleanliness, we chose to utilize the data points since 2000.
                                 </p>
                                 <p>
-                                To summarize, the data set included categorical features like “State” and “County”; with “Housing Price Per SqFt” and “Year” being the only numerical elements. 
+                                To summarize, the data set included categorical features like “State” and “County”; with “Housing Price Per SqFt” and “Year” being the only numerical elements.
                                 </p>
                             </div>
                         </div>
-                    <!-- Approach div--> 
+                    <!-- Approach div-->
                         <div class="card shadow mb-4">
                                 <div class="card-header py-3">
                                     <h4 class="m-0 font-weight-bold text-primary">Approach</h4>
@@ -287,16 +286,16 @@
                                         <p>
                                         Scikit-Learn Python packages are used to create, train and evaluate the model. Pandas and Matplotlib libraries are used to load, process and visualize the datasets.
                                         </p>
-                                    </div>  
+                                    </div>
 
                                     <div class="col-lg-4 mb-4">
                                         <h2>Why Linear Regression? </h2>
-                                        <p>We have a dataset which contains the continuous variables that a Linear Regression would use to find a statistical relationship. 
+                                        <p>We have a dataset which contains the continuous variables that a Linear Regression would use to find a statistical relationship.
                                         </p>
-                                    </div> 
+                                    </div>
 
                                     <div class="col-lg-4 mb-4">
-                                        <h2>Alternative models </h2> 
+                                        <h2>Alternative models </h2>
                                         <p>
                                         Other models such as logistic regression, decision tree etc. were considered. However, due to the limited set of features available in this dataset we could not use an alternative model.
                                         </p>
@@ -327,18 +326,18 @@
                                                     <div class="col-lg-5 mb-4">
                                                         <h6 class="text-center">After backfill</h6>
                                                         <img src="img/afterbackfill.png" width=100% alt="img/afterbackfill.png">
-                                                    </div> 
+                                                    </div>
                                                 </div>
                                                 </li>
-                                                
+
                                                 <li><p>(dis)similaraties between train and test datasets – after dividing the original dataset into train and test parts, there were dissimilarities in the shapes. Not all Counties that were present in the training dataset were available in testing dataset and vice versa. To rectify this, we reshaped our datasets to match by augmenting/removing the mismatched county data.</p>
                                                 </li>
                                             </ul>
                                         <br>
                                         <h2>Model Training, Testing, Tuning </h2>
-                                        <p>Our historical housing prices data was fed to the Scikit-Learn’s linear regression model for training. We then tested the model using the training the dataset. We also calculated the residuals and coefficients which would help determine the accuracy of the model. 
-                                        </p> 
-                                    
+                                        <p>Our historical housing prices data was fed to the Scikit-Learn’s linear regression model for training. We then tested the model using the training the dataset. We also calculated the residuals and coefficients which would help determine the accuracy of the model.
+                                        </p>
+
                                         <div class="row">
                                             <div class="col-lg-5 mb-4">
                                                 <h6 class="text-center">Residuals on Training Set</h6>
@@ -347,14 +346,14 @@
                                             <div class="col-lg-5 mb-4">
                                                 <h6 class="text-center">Residuals on Testing Set</h6>
                                                 <img src="img/residuals_testingset.png" width=100% alt="img/residuals_testingset.png">
-                                            </div> 
+                                            </div>
                                         </div>
                                     <br>
-                                    
+
                                     <div class="row">
                                             <div class="col-lg-5 mb-4">
                                                 <h6 class="text-center">Some key scores and findings</h6>
-                                        <table border="0" class="table table-striped"> 
+                                        <table border="0" class="table table-striped">
                                             <thead>
                                                 <tr style="text-align: center;">
                                                     <th>Variable</th>
@@ -362,27 +361,27 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <tr>  
+                                                <tr>
                                                     <td>Year Coefficient</td>
                                                     <td>6.45359146e+00</td>
                                                 </tr>
-                                                <tr>  
+                                                <tr>
                                                     <td>State_DC</td>
                                                     <td>-8.330345e+12</td>
                                                 </tr>
-                                                <tr>  
+                                                <tr>
                                                     <td>State_MD</td>
                                                     <td>-1.769454e+13</td>
                                                 </tr>
-                                                <tr>  
+                                                <tr>
                                                     <td>State_VA</td>
                                                     <td>-1.769454e+13</td>
                                                 </tr>
-                                                <tr>  
+                                                <tr>
                                                     <td>State_WA</td>
                                                     <td>-1.769454e+13</td>
                                                 </tr>
-                                                <tr>  
+                                                <tr>
                                                     <td>R2 Score</td>
                                                     <td>-1.6219420457962928</td>
                                                 </tr>
@@ -394,8 +393,8 @@
                                             Based on the coefficient values of all variables, it shows that the Time factor has the distinct coefficient value than all the counties. This could mean that the general growth of housing prices over a period of time plays as the key factor in this model prediction. The coefficients of all counties are consistent and do not infer any significant impact in prediction.
                                         </p>
                                         </div>
-                                    </div>  
-                                </div> 
+                                    </div>
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -415,7 +414,7 @@
                                         <div class="col-lg-4 mb-4">
                                             <h6 class="text-center">Historical of Year 2000 - 2010</h6>
                                             <img src="img/historical_trend.png" width=100% alt="img/historical_trend.png">
-                                        </div> 
+                                        </div>
                                         <div class="col-lg-4 mb-4">
                                                 <h6 class="text-center">Prediction of Year 2011 - 2018</h6>
                                                 <img src="img/predicted_trend.png" width=100% alt="img/predicted_trend.png">
@@ -423,12 +422,12 @@
                                         <div class="col-lg-4 mb-4">
                                                 <h6 class="text-center">Actual Trend of Year 2011 - 2018</h6>
                                                 <img src="img/actual_trend.png" width=100% alt="img/actual_trend.png">
-                                        </div> 
+                                        </div>
                                     </div>
-                                </div> 
-                            </div> 
-                        </div>  
-                    </div>                
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <!-- Conclusion -->
                     <div class="card shadow mb-4">
@@ -440,18 +439,18 @@
                                 <div class="col-lg-4 mb-4">
                                     <h2>Met the goal? </h2>
 
-                                    <p>Given the scope of the dataset, although a 100% accuracy is not achieved, the model was able to give a reasonable prediction that shows a linear trend based on the years 2000 - 2010 . 
+                                    <p>Given the scope of the dataset, although a 100% accuracy is not achieved, the model was able to give a reasonable prediction that shows a linear trend based on the years 2000 - 2010 .
                                     </p>
-                                </div>  
+                                </div>
 
                                 <div class="col-lg-4 mb-4">
                                     <h2>What could have helped for this model? </h2>
-                                    <p>Bringing in more dependent and independent variables such as year built, technology company growth, employment rate, occupational inflow to urban cities etc. Training with more extensive, richer in terms of years, as well as larger volume of data. Including external factors such as Dollar($) value inflation, Overall GDP rate etc. 
+                                    <p>Bringing in more dependent and independent variables such as year built, technology company growth, employment rate, occupational inflow to urban cities etc. Training with more extensive, richer in terms of years, as well as larger volume of data. Including external factors such as Dollar($) value inflation, Overall GDP rate etc.
                                     </p>
-                                </div> 
+                                </div>
 
                                 <div class="col-lg-4 mb-4">
-                                    <h2>What’s next? </h2> 
+                                    <h2>What’s next? </h2>
                                     <p>
                                     Visit our <a href="tech_education_model">Technology & Education Model </a>
                                     </p>

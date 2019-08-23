@@ -28,6 +28,9 @@ def viewdashboard():
 def snapshots():
     return render_template("AGCdashboard2.html")
 
+@app.route("/hoiviews")
+def hoiviews():
+    return render_template("hoiviews")    
 
 @app.route("/tech_education_model")
 def tech_education_model():
