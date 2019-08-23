@@ -30,7 +30,7 @@ def snapshots():
 
 @app.route("/hoiviews")
 def hoiviews():
-    return render_template("hoiviews")    
+    return render_template("hoiviews.html")    
 
 @app.route("/tech_education_model")
 def tech_education_model():
