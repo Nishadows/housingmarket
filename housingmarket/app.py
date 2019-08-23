@@ -17,19 +17,17 @@ app = Flask(__name__, static_url_path='', static_folder='static')
 @app.route("/")
 def index():
     """Return the homepage."""
-    return render_template("index.html")
+    # return render_template("index.html")
+    return render_template("AGCdashboard.html")
 
 @app.route("/dashboard")
 def viewdashboard():
     return render_template("AGCdashboard.html")
 
-@app.route("/dmvviz")
-def visual():
-    return render_template("visual.html")
+@app.route("/localsnapshot")
+def snapshots():
+    return render_template("AGCdashboard2.html")
 
-@app.route("/seattleviz")
-def visual2():
-    return render_template("visual2.html")
 
 @app.route("/tech_education_model")
 def tech_education_model():
