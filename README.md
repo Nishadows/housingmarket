@@ -5,9 +5,11 @@ As we prepare to welcome Amazon HQ2 to Washington D.C. and have already begun to
 
 This full scope of this project has been deployed to Heroku @ https://housingmarket.herokuapp.com/tech_education_model
 
-Catalog: 
-Source Code for the website is under housingmarket folder
-Source Code for the ML Models is under MLModels folder
+Catalog:
+
+Source Code for the website: housingmarket folder
+
+Source Code for the ML Models: MLModels folder
 
 Platforms utilized: Tableau, Javascript, Python, HTML, Javascript-Plotly, and Machine Learning
 
