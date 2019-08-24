@@ -1,18 +1,8 @@
-<div class="col-lg-12 mb-4">
+# Technology and Education Model
+  #### Motivation and Overview
+  
 
-<div id="content"># Technology and Education Model
-
-<div class="card shadow mb-4">
-
-<div class="card-header py-3">#### Motivation and Overview</div>
-
-<div class="card-body">The motivation behind this project is to make an informed predication regarding the impact that Amazon HQ2 might have on Arlington residents and housing affordability. We created a machine learning model that utilizes multivariate linear regression and variance inflation factors to determine which factors related to technology and technology workers predict housing affordability. This analysis spans 1,427 counties across the United States, with the intention to apply what we see in national trends to Arlington, or potentially any locale experiencing a boom in its technology sector.
-
-<div class="row">
-
-<div class="col-md-10" stle="padding-left: 1000px">
-
-<div class="tableauPlaceholder" id="viz1566602504993" style="position: relative">
+#####The motivation behind this project is to make an informed predication regarding the impact that Amazon HQ2 might have on Arlington residents and housing affordability. We created a machine learning model that utilizes multivariate linear regression and variance inflation factors to determine which factors related to technology and technology workers predict housing affordability. This analysis spans 1,427 counties across the United States, with the intention to apply what we see in national trends to Arlington, or potentially any locale experiencing a boom in its technology sector.
 
 <noscript>[![ ](https://public.tableau.com/static/images/YH/YHBDZG2J3/1_rss.png)](#)</noscript>
 
