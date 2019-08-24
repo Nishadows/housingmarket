@@ -122,5 +122,5 @@
 
 #### Our model with an R<sup>2</sup> score of 0.57 finds that the top four predictors of housing affordability for a county were whether the county was located in North Dakota, DC, Wyoming, or Hawaii, with coefficients of 0.24, 0.13,0.11, and 0.10, respectively . This was not a surprising result – the particulars of geographic constraints, local economies, and other factors specific to a region are significant influences in housing affordability. Our next two predictors were two variables we were particularly interested in - the share of employees in the tech industry, which predicted a 0.10 increase in the HPI, and the difference in year of education between the moved and settled populations, which predicted a 0.10 increase. This would imply that an increase in the concentration of workers in the technology sector and a more educated population of new residents both predict higher housing prices and therefore lower affordability.
 
-![Chania](img/residuals.png)
+![Residuals](https://github.com/Nishadows/housingmarket/blob/master/housingmarket/static/img/residuals.png)
 
