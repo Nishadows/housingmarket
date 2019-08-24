@@ -8,8 +8,6 @@
 
 <object class="tableauViz" style="display:none;"><param name="host_url" value="https%3A%2F%2Fpublic.tableau.com%2F"> <param name="embed_code_version" value="3"> <param name="path" value="shared/YHBDZG2J3"> <param name="toolbar" value="yes"> <param name="static_image" value="https://public.tableau.com/static/images/YH/YHBDZG2J3/1.png"> <param name="animate_transition" value="yes"> <param name="display_static_image" value="yes"> <param name="display_spinner" value="yes"> <param name="display_overlay" value="yes"> <param name="display_count" value="yes"> <param name="filter" value="publish=yes"></object></div>
 
-<script type="text/javascript">var divElement = document.getElementById('viz1566602504993'); var vizElement = divElement.getElementsByTagName('object')[0]; vizElement.style.width = '100%'; vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px'; var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);</script></div>
-
 ## Data
 
 ### Dataset Source: Federal Housing Finance Agency [Housing Price Index (all transactions, 2017 dollars)](https://www.fhfa.gov/hpi)
@@ -124,5 +122,5 @@
 
 #### Our model with an R<sup>2</sup> score of 0.57 finds that the top four predictors of housing affordability for a county were whether the county was located in North Dakota, DC, Wyoming, or Hawaii, with coefficients of 0.24, 0.13,0.11, and 0.10, respectively . This was not a surprising result – the particulars of geographic constraints, local economies, and other factors specific to a region are significant influences in housing affordability. Our next two predictors were two variables we were particularly interested in - the share of employees in the tech industry, which predicted a 0.10 increase in the HPI, and the difference in year of education between the moved and settled populations, which predicted a 0.10 increase. This would imply that an increase in the concentration of workers in the technology sector and a more educated population of new residents both predict higher housing prices and therefore lower affordability.
 
-<center>![Chania](img/residuals.png)</center>
+![Chania](img/residuals.png)
 
