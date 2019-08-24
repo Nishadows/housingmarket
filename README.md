@@ -13,3 +13,7 @@ A brief overview of the project:
 
 
 Project by: Nireesha Abbineni, Allyssa Calhoun, Emily Reynolds, Mrinmayee Kulkarni: August 24, 2019
+
+Catalog: 
+Source Code for the website is under housingmarket folder
+Source Code for the ML Models is under MLModels folder
